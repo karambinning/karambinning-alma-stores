@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alma Stores — 75 Alma Road, Winton BH9 · Open 7am – Midnight</title>
+<meta name="description" content="Corner shop, off-licence and groceries on Alma Road, Winton. Open seven days, 7am to midnight. Beer, wine, spirits, cider and everyday essentials. 75 Alma Road, Bournemouth BH9 1AD.">
+<meta name="theme-color" content="#0E0E0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0E0C;
+  --orange:#C75B12;
+  --oat:#E9D5A1;
+  --paper:#FCFAF4;
+  --line:rgba(252,250,244,.16);
+  --display:"Big Shoulders Display","Bebas Neue",Impact,sans-serif;
+  --body:"Manrope",ui-sans-serif,system-ui,sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--body);
+  font-size:clamp(.95rem,.55rem + .9vw,1.075rem);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:9999;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity:.18;
+  mix-blend-mode:overlay;
+}
+h1,h2,h3{
+  font-family:var(--display);
+  font-weight:800;
+  letter-spacing:-.005em;
+  line-height:.9;
+  text-wrap:balance;
+  margin:0;
+}
+p{text-wrap:pretty;hyphens:auto;margin:0 0 1rem}
+a{color:inherit}
+
+/* ---------- top utility bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.65rem clamp(1rem,4vw,2.25rem);
+  background:rgba(14,14,12,.82);
+  backdrop-filter:saturate(140%) blur(6px);
+  border-bottom:1px solid var(--line);
+  font-size:.78rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.bar__name{font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:.02em}
+.bar__name span{color:var(--orange)}
+.bar__phone{
+  color:var(--oat);
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .2s ease,color .2s ease;
+}
+.bar__phone:hover{border-color:var(--oat);color:var(--paper)}
+
+.status{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.32rem .7rem;
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-weight:600;
+  font-size:.7rem;
+}
+.status .dot{
+  width:.5rem;height:.5rem;border-radius:50%;
+  background:var(--oat);
+  box-shadow:0 0 0 0 currentColor;
+  animation:pulse 2.4s ease-out infinite;
+}
+.status[data-open="true"] .dot{background:#7CC56B;color:#7CC56B}
+.status[data-open="false"] .dot{background:var(--orange);color:var(--orange)}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 currentColor}
+  70%{box-shadow:0 0 0 .55rem rgba(0,0,0,0)}
+  100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}
+}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  padding:clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,2.25rem) clamp(2rem,4vw,3.5rem);
+  display:grid;
+  gap:clamp(1.5rem,3vw,3rem);
+  grid-template-columns:1fr;
+}
+@media (min-width:62rem){
+  .hero{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:end}
+}
+.wordmark{
+  font-family:var(--display);
+  color:var(--orange);
+  font-weight:900;
+  font-size:clamp(4.5rem,18vw,17.5rem);
+  line-height:.82;
+  letter-spacing:-.02em;
+  text-transform:uppercase;
+}
+.wordmark span{
+  display:block;
+  color:var(--paper);
+  font-weight:800;
+}
+.wordmark .rule{
+  display:block;
+  height:.18em;
+  margin:.18em 0 .12em;
+  background:var(--orange);
+  width:min(100%,72%);
+}
+.hero__sub{
+  margin-top:1.25rem;
+  font-family:var(--body);
+  font-weight:500;
+  font-size:clamp(1.05rem,1.5vw,1.35rem);
+  max-width:34ch;
+  color:var(--oat);
+}
+.hero__sub em{font-style:normal;color:var(--paper)}
+
+.hero__meta{
+  border-top:1px solid var(--line);
+  padding-top:1.5rem;
+  display:flex;flex-direction:column;gap:1.25rem;
+}
+.hero__meta dt{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.85rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:.25rem;
+}
+.hero__meta dd{
+  margin:0;
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  line-height:1;
+  letter-spacing:-.005em;
+}
+.hero__meta dd a{
+  text-decoration:none;
+  border-bottom:2px solid var(--orange);
+  padding-bottom:.1em;
+}
+.hero__meta dd small{
+  display:block;
+  font-family:var(--body);
+  font-size:.95rem;
+  font-weight:500;
+  color:var(--oat);
+  letter-spacing:0;
+  margin-top:.35rem;
+  line-height:1.4;
+}
+
+/* ---------- marquee ---------- */
+.marquee{
+  background:var(--orange);
+  color:var(--ink);
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  overflow:hidden;
+  --gap:3rem;
+  --speed:38s;
+}
+.marquee__track{
+  display:flex;
+  width:max-content;
+  gap:var(--gap);
+  padding:.85rem 0;
+  animation:scroll var(--speed) linear infinite;
+  font-family:var(--display);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  font-size:clamp(1.4rem,2.4vw,2rem);
+  white-space:nowrap;
+}
+.marquee__item{display:inline-flex;align-items:center;gap:var(--gap)}
+.marquee__item::after{
+  content:"";
+  width:.7rem;height:.7rem;
+  background:var(--ink);
+  border-radius:50%;
+  flex:0 0 auto;
+}
+@keyframes scroll{
+  to{transform:translateX(calc(-50% - var(--gap)/2))}
+}
+@media (prefers-reduced-motion:reduce){
+  .marquee__track{animation:none;transform:translateX(0)}
+}
+
+/* ---------- shelf ---------- */
+.shelf{
+  padding:clamp(3.5rem,7vw,6rem) clamp(1rem,4vw,2.25rem);
+  background:var(--ink);
+}
+.shelf__head{
+  display:grid;gap:1rem;
+  grid-template-columns:1fr;
+  align-items:end;
+  margin-bottom:clamp(2rem,4vw,3.5rem);
+  padding-bottom:1.5rem;
+  border-bottom:1px solid var(--line);
+}
+@media (min-width:50rem){
+  .shelf__head{grid-template-columns:auto 1fr;gap:3rem}
+}
+.shelf__head h2{
+  color:var(--oat);
+  font-size:clamp(2.4rem,5vw,4rem);
+  font-weight:800;
+  text-transform:uppercase;
+}
+.shelf__head h2 em{font-style:normal;color:var(--orange)}
+.shelf__head p{
+  margin:0;
+  max-width:48ch;
+  color:rgba(252,250,244,.75);
+  font-size:1.05rem;
+}
+
+.cols{
+  display:grid;gap:clamp(2rem,4vw,3.5rem);
+  grid-template-columns:1fr;
+}
+@media (min-width:50rem){
+  .cols{grid-template-columns:repeat(3,1fr)}
+}
+.col{display:flex;flex-direction:column;gap:.85rem}
+.col__num{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.75rem;
+  letter-spacing:.22em;
+  color:var(--orange);
+}
+.col h3{
+  font-size:clamp(1.7rem,2.4vw,2.4rem);
+  color:var(--paper);
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.65rem;
+  margin-bottom:.4rem;
+}
+.col ul{
+  list-style:none;
+  margin:0;padding:0;
+  display:flex;flex-direction:column;
+}
+.col li{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:1rem;
+  padding:.6rem 0;
+  border-bottom:1px dashed var(--line);
+  font-size:1rem;
+}
+.col li:last-child{border-bottom:0}
+.col li span{color:var(--oat);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase}
+.col__note{
+  margin-top:.6rem;
+  font-size:.88rem;
+  color:rgba(252,250,244,.6);
+  line-height:1.55;
+}
+
+@supports (animation-timeline:view()){
+  .col{
+    animation:rise both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 28%;
+  }
+  @keyframes rise{
+    from{opacity:0;transform:translateY(1.5rem)}
+    to{opacity:1;transform:translateY(0)}
+  }
+}
+
+/* ---------- letterhead / find us ---------- */
+.find{
+  background:var(--oat);
+  color:var(--ink);
+  padding:clamp(3rem,6vw,5.5rem) clamp(1rem,4vw,2.25rem);
+}
+.find__inner{
+  display:grid;
+  gap:clamp(2rem,4vw,4rem);
+  grid-template-columns:1fr;
+  max-width:90rem;
+  margin:0 auto;
+}
+@media (min-width:55rem){
+  .find__inner{grid-template-columns:1.2fr 1fr;align-items:start}
+}
+.find__head{
+  display:block;
+  font-family:var(--display);
+  font-size:.78rem;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:1.25rem;
+}
+.find h2{
+  font-size:clamp(2.6rem,6vw,5.5rem);
+  font-weight:800;
+  color:var(--ink);
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.letterhead{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(1.5rem,2.6vw,2.1rem);
+  line-height:1.1;
+  color:var(--ink);
+}
+.letterhead a{
+  text-decoration:none;
+  border-bottom:2px solid var(--orange);
+}
+.letterhead .small{
+  display:block;
+  font-family:var(--body);
+  font-size:.95rem;
+  font-weight:500;
+  color:rgba(14,14,12,.7);
+  letter-spacing:0;
+  margin-top:.5rem;
+  line-height:1.5;
+}
+
+.hours{
+  border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);
+  padding:1.25rem 0;
+}
+.hours h3{
+  font-family:var(--display);
+  font-size:.85rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:.85rem;
+}
+.hours dl{
+  margin:0;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:.45rem 1.25rem;
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(1.25rem,2vw,1.6rem);
+}
+.hours dt{color:var(--ink);text-transform:uppercase;letter-spacing:.02em}
+.hours dd{margin:0;color:var(--ink);justify-self:end}
+
+.map-link{
+  display:inline-flex;align-items:center;gap:.65rem;
+  margin-top:1.5rem;
+  padding:.85rem 1.25rem;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--display);
+  font-weight:700;
+  font-size:1rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:background .2s ease,transform .2s ease;
+}
+.map-link:hover{background:var(--orange);transform:translateX(.25rem)}
+.map-link svg{width:1rem;height:1rem;flex:0 0 auto}
+
+/* ---------- footer ---------- */
+.foot{
+  background:var(--ink);
+  color:var(--oat);
+  padding:clamp(2.5rem,5vw,4rem) clamp(1rem,4vw,2.25rem);
+  border-top:1px solid var(--line);
+}
+.foot__row{
+  display:flex;flex-wrap:wrap;
+  justify-content:space-between;align-items:flex-end;
+  gap:2rem;
+  max-width:90rem;margin:0 auto;
+}
+.foot__mark{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(3rem,8vw,6rem);
+  line-height:.85;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+  color:var(--paper);
+}
+.foot__mark span{color:var(--orange)}
+.foot__meta{
+  font-size:.85rem;
+  letter-spacing:.04em;
+  text-align:right;
+  line-height:1.6;
+  color:rgba(233,213,161,.85);
+}
+.foot__meta a{color:var(--oat);text-decoration:none;border-bottom:1px solid rgba(252,250,244,.25)}
+.foot__rule{
+  height:1px;background:var(--line);
+  margin:2rem 0 1rem;
+}
+.foot__fine{
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:rgba(233,213,161,.55);
+  display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;
+}
+
+/* ---------- accessibility / motion ---------- */
+:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:3px;
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <span class="bar__name">Alma <span>Stores</span></span>
+  <span class="status" id="status" data-open="true" aria-live="polite">
+    <span class="dot" aria-hidden="true"></span>
+    <span id="status-text">Open · 7am – Midnight</span>
+  </span>
+  <a class="bar__phone" href="tel:+441202514131">01202 514131</a>
+</header>
+
+<section class="hero">
+  <div>
+    <h1 class="wordmark" aria-label="Alma Stores">
+      Alma
+      <span class="rule" aria-hidden="true"></span>
+      <span>Stores</span>
+    </h1>
+    <p class="hero__sub">
+      The <em>corner shop</em> on Alma Road, Winton.
+      Off-licence, groceries and the bits you forgot — open seven days,
+      seven in the morning through to midnight.
+    </p>
+  </div>
+
+  <dl class="hero__meta">
+    <div>
+      <dt>Find us</dt>
+      <dd>
+        BH9 1AD
+        <small>75 Alma Road, Bournemouth.<br>Two minutes from Stokewood Leisure Centre.</small>
+      </dd>
+    </div>
+    <div>
+      <dt>Ring the shop</dt>
+      <dd>
+        <a href="tel:+441202514131">01202&nbsp;514131</a>
+        <small>For stock checks, deliveries or quick questions.</small>
+      </dd>
+    </div>
+    <div>
+      <dt>Open</dt>
+      <dd>
+        7am – Midnight
+        <small>Every day. Bank holidays included.</small>
+      </dd>
+    </div>
+  </dl>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item">Open 7 til Midnight</span>
+    <span class="marquee__item">Beer</span>
+    <span class="marquee__item">Wine</span>
+    <span class="marquee__item">Spirits</span>
+    <span class="marquee__item">Cider</span>
+    <span class="marquee__item">Groceries</span>
+    <span class="marquee__item">Seven Days a Week</span>
+    <span class="marquee__item">Open 7 til Midnight</span>
+    <span class="marquee__item">Beer</span>
+    <span class="marquee__item">Wine</span>
+    <span class="marquee__item">Spirits</span>
+    <span class="marquee__item">Cider</span>
+    <span class="marquee__item">Groceries</span>
+    <span class="marquee__item">Seven Days a Week</span>
+  </div>
+</div>
+
+<section class="shelf" id="inside">
+  <div class="shelf__head">
+    <h2>What's <em>Inside</em></h2>
+    <p>
+      A small shop that does the proper job of a small shop — chilled drinks,
+      everyday essentials, and an off-licence shelf for the walk home.
+      No fuss, no app, no loyalty card.
+    </p>
+  </div>
+
+  <div class="cols">
+    <article class="col">
+      <span class="col__num">01 / Off-Licence</span>
+      <h3>Beer, Wine, Spirits, Cider</h3>
+      <ul>
+        <li>Lager &amp; ale <span>chilled</span></li>
+        <li>House wines <span>red · white · rosé</span></li>
+        <li>Spirits <span>singles &amp; bottles</span></li>
+        <li>Cider <span>still &amp; sparkling</span></li>
+      </ul>
+      <p class="col__note">
+        Licensed to sell alcohol within local trading hours.
+        Challenge 25 in force — ID accepted: passport, photo driving licence, PASS card.
+      </p>
+    </article>
+
+    <article class="col">
+      <span class="col__num">02 / Groceries</span>
+      <h3>The Everyday Shelf</h3>
+      <ul>
+        <li>Milk &amp; bread <span>daily</span></li>
+        <li>Tinned &amp; dry goods <span>cupboard</span></li>
+        <li>Snacks &amp; confectionery <span>kids' bits</span></li>
+        <li>Soft drinks &amp; juice <span>cold cabinet</span></li>
+      </ul>
+      <p class="col__note">
+        The shop you walk past every day, with the things you forgot
+        to put on the list. Cash and card welcome.
+      </p>
+    </article>
+
+    <article class="col">
+      <span class="col__num">03 / Late &amp; Early</span>
+      <h3>Open When You Need Us</h3>
+      <ul>
+        <li>Morning open <span>7am sharp</span></li>
+        <li>Late close <span>midnight</span></li>
+        <li>Weekends <span>same hours</span></li>
+        <li>Bank holidays <span>open</span></li>
+      </ul>
+      <p class="col__note">
+        Seventeen hours a day, every day. If we're trading,
+        the lights are on and the door's open.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="find" id="find">
+  <div class="find__inner">
+    <div>
+      <span class="find__head">Find the shop</span>
+      <h2>75 Alma Road, BH9.</h2>
+      <p class="letterhead">
+        <a href="https://www.openstreetmap.org/?mlat=50.7389177&amp;mlon=-1.8732045&amp;zoom=18#map=18/50.7389177/-1.8732045" target="_blank" rel="noopener">
+          Alma&nbsp;Stores<br>
+          75&nbsp;Alma&nbsp;Road<br>
+          Winton, Bournemouth<br>
+          BH9&nbsp;1AD
+        </a>
+        <span class="small">
+          On the corner, between the leisure centre and the Methodist church.
+          Step inside — the bell still rings.
+        </span>
+      </p>
+      <a class="map-link" href="https://www.openstreetmap.org/?mlat=50.7389177&amp;mlon=-1.8732045&amp;zoom=18#map=18/50.7389177/-1.8732045" target="_blank" rel="noopener">
+        Open in Maps
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hours">
+      <h3>Trading Hours</h3>
+      <dl>
+        <dt>Mon</dt><dd>7am – Midnight</dd>
+        <dt>Tue</dt><dd>7am – Midnight</dd>
+        <dt>Wed</dt><dd>7am – Midnight</dd>
+        <dt>Thu</dt><dd>7am – Midnight</dd>
+        <dt>Fri</dt><dd>7am – Midnight</dd>
+        <dt>Sat</dt><dd>7am – Midnight</dd>
+        <dt>Sun</dt><dd>7am – Midnight</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__row">
+    <div class="foot__mark">
+      Alma<br><span>Stores.</span>
+    </div>
+    <div class="foot__meta">
+      75 Alma Road · Winton<br>
+      Bournemouth · BH9&nbsp;1AD<br>
+      <a href="tel:+441202514131">01202&nbsp;514131</a><br>
+      Open daily · 7am – Midnight
+    </div>
+  </div>
+  <div class="foot__rule"></div>
+  <div class="foot__fine">
+    <span>© Alma Stores · Independent corner shop</span>
+    <span>Drink responsibly · Drinkaware.co.uk</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var el = document.getElementById('status');
+  var txt = document.getElementById('status-text');
+  if(!el || !txt) return;
+  function tick(){
+    var now = new Date();
+    var h = now.getHours();
+    var open = (h >= 7 && h < 24); // 7am — midnight
+    el.setAttribute('data-open', open ? 'true' : 'false');
+    txt.textContent = open ? 'Open now · until Midnight' : 'Closed · opens 7am';
+  }
+  tick();
+  setInterval(tick, 60000);
+})();
+</script>
+
+</body>
+</html>
